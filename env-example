@@ -1,0 +1,14 @@
+#Elastic Agent Version
+ELATIC_AGENT_VERSION=<Elastic agent version>
+
+#Port to expose on the host
+HOST_PORT=8223
+
+#Enrollment token for the policy the agent will get added to
+FLEET_ENROLLMENT_TOKEN=<FLEET_POLICY_ENROLLMENT_TOKEN>
+
+#The network to connect the container to
+DOCKER_NETWORK=sobridge
+
+#The URL of the fleet server to connect to
+FLEET_URL=<FLEET_SERVER_IP_PORT>
