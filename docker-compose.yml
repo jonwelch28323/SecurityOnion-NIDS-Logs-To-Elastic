@@ -1,0 +1,21 @@
+services:
+  elastic-agent:
+    image: docker.elastic.co/elastic-agent/elastic-agent:{ELASTIC_AGENT_VERSION}
+    container_name: Elastic-Log-Collector
+    restart: always
+    user: root # note, synthetic browser monitors require this set to `elastic-agent`
+    environment:
+      - FLEET_ENROLLMENT_TOKEN=${FLEET_ENROLLMENT_TOKEN}
+      - FLEET_ENROLL=1
+      - FLEET_URL=${FLEET_URL}
+      - FLEET_INSECURE=true
+    volumes:
+      - /nsm/zeek/:/nsm/zeek/
+      - /nsm/suricata/:/nsm/suricata/ 
+    ports: 
+      - ${HOST_PORT}:8220
+
+networks:
+  default:
+    external:
+      name: ${DOCKER_NETWORK}
